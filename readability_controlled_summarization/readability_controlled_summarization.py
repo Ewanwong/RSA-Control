@@ -37,7 +37,7 @@ output_file = os.path.join(args.output_dir, "output.json")
 # load dataset
 dataset = load_dataset("cnn_dailymail", "3.0.0")['test']
 dataset = [{"article": d['article'], "reference": d['highlights']} for d in dataset]
-dataset = dataset[:10]
+# dataset = dataset[:10]
 # load model
 
 model_name = "meta-llama/Llama-2-7b-chat-hf"
