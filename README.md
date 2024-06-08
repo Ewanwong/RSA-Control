@@ -17,7 +17,7 @@ To reproduce results from the paper, please run:
 `python toxicity_bias_mitigation/crows_pairs_experiments.py --output_dir debiasing_results  --adjustable --two_models`
 
 ### Readability-Controlled Summarization
-`python readability_controlled_summarization/readability_controlled_summarization.py --output_file readability_control_results.json --adjustable`
+`python readability_controlled_summarization/readability_controlled_summarization.py --output_dir readability_control_results --adjustable`
 
 CrowS-Pairs and RealToxicityPrompts datasets for toxicity and bias reduction experiments can be found in `toxicity_bias_mitigation/data/`, and we use CNN/DM from huggingface transformers.
 

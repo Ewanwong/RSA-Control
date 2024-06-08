@@ -54,7 +54,6 @@ class PragmaticLlamaForCausalLM(LlamaForCausalLM):
         self.num_classes = config.num_classes
         self.adjustable = config.adjustable
         self.prior_aggregation_method = config.prior_aggregation_method if hasattr(config, 'prior_aggregation_method') else "sum"
-        self.scale_factor = config.scale_factor if hasattr(config, 'scale_factor') else 2
         self.topk = config.topk if hasattr(config, 'topk') else 5
         print('model initialized')
         

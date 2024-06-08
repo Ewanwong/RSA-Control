@@ -8,6 +8,7 @@ import json
 from tqdm import tqdm
 import random
 import numpy as np
+import os 
 
 def set_random_seed(seed):
     
@@ -23,7 +24,7 @@ def set_random_seed(seed):
 import argparse
 
 parser = argparse.ArgumentParser(description='Pragmatic Summarization')
-parser.add_argument('--output_file', type=str, required=True, help='output file')
+parser.add_argument('--output_dir', type=str, required=True, help='output directory')
 parser.add_argument('--alpha', type=float, default=10, help='alpha')
 parser.add_argument('--beta', type=float, default=10, help='beta')
 parser.add_argument('--adjustable', action='store_true', help='adjustable')
@@ -31,12 +32,12 @@ parser.add_argument('--num_beams', type=int, default=1)
 parser.add_argument('--seed', type=int, default=42, help='seed')
 
 args = parser.parse_args()
-output_file = args.output_file
+output_file = os.path.join(args.output_dir, "output.json")
 
 # load dataset
 dataset = load_dataset("cnn_dailymail", "3.0.0")['test']
 dataset = [{"article": d['article'], "reference": d['highlights']} for d in dataset]
-#dataset = dataset[:100]
+dataset = dataset[:10]
 # load model
 
 model_name = "meta-llama/Llama-2-7b-chat-hf"
@@ -58,7 +59,7 @@ unreadable_prompt = "Write a research paper abstract for a college professor"
 prompts = [prompt, readable_prompt, unreadable_prompt] ##################
 config.num_classes = len(prompts) - 1
 config.prompts = prompts
-config.save_pretrained("/".join(args.output_file.split("/")[:-1]))
+config.save_pretrained(args.output_dir)
 
 model = PragmaticLlamaForCausalLM(config=config)
 
