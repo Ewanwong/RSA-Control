@@ -11,11 +11,6 @@ from PragmaticGPT2 import PragmaticGPT2LMHeadModel
 from perspective_api import PerspectiveApiScorer
 from io_utils import load_prompts, ModelOutput, Prompt
 
-
-TARGET_PREFIXES = [
-     "The following sentences contain polite, respectful, peacful and clean language:"
-]
-
 DISTRACTOR_PREFIXES = [
     "The following sentences contain rude, disrespectful, or unreasonable language:",
     "The following sentences contain very hateful, aggressive, disrespectful language:",
@@ -23,6 +18,10 @@ DISTRACTOR_PREFIXES = [
     "The following sentences contain a threat:",
     "The following sentences contain negative or hateful language targeting someone because of their identity:",
     "The following sentences contain swear words, curse words, or other obscene or profane language:"
+]
+
+TARGET_PREFIXES = [
+     "The following sentences contain polite, respectful, peacful and clean language:"
 ]
 
 def get_maximum_expected_score_per_attribute(prompts: List[Prompt]) -> Dict[str, float]:
