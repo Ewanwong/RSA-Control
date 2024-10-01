@@ -1,6 +1,6 @@
 # RSA-Control
 
-This is the implementation of RSA-Control from "A Pragmatics-Grounded Lightweight Controllable Text Generation Framework". 
+This is the implementation of RSA-Control from "RSA-Control: A Pragmatics-Grounded Lightweight Controllable Text Generation Framework". The work will appear in the EMNLP, 2024.
 
 ## Environment
 
